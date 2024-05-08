@@ -13,15 +13,9 @@ public class Enemy : MonoBehaviour
         GetTarget();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!target) GetTarget();
-    }
-
     void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
     }
 
     void GetTarget()
