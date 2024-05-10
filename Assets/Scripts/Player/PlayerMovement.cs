@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigid;
 
     Vector2 movement;
-
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();

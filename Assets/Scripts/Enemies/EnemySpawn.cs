@@ -8,7 +8,7 @@ public class EnemySpawn : MonoBehaviour
     private float distance;
     public float spawnRate = 1f;
     [SerializeField] GameObject enemyToSpawn;
-    // Start is called before the first frame update
+
     void Start()
     {
         GetTarget();
