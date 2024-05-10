@@ -320,6 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 330385677}
   - component: {fileID: 330385678}
+  - component: {fileID: 330385679}
   m_Layer: 0
   m_Name: Spawn5
   m_TagString: Untagged
@@ -394,6 +395,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &330385679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330385676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc84bf4dab9d4e45b6a108b257aabdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  enemyToSpawn: {fileID: 3065268077338921854, guid: 821a175b9c2a0924288fc8803bb04f6c, type: 3}
 --- !u!1 &484762403
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532298144}
   - component: {fileID: 532298145}
+  - component: {fileID: 532298146}
   m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
@@ -652,6 +668,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &532298146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532298143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc84bf4dab9d4e45b6a108b257aabdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  enemyToSpawn: {fileID: 3065268077338921854, guid: 821a175b9c2a0924288fc8803bb04f6c, type: 3}
 --- !u!1 &653791138
 GameObject:
   m_ObjectHideFlags: 0
@@ -18673,6 +18703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199625888}
   - component: {fileID: 1199625889}
+  - component: {fileID: 1199625890}
   m_Layer: 0
   m_Name: Spawn6
   m_TagString: Untagged
@@ -18747,6 +18778,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1199625890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199625887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc84bf4dab9d4e45b6a108b257aabdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  enemyToSpawn: {fileID: 3065268077338921854, guid: 821a175b9c2a0924288fc8803bb04f6c, type: 3}
 --- !u!1 &1353775333
 GameObject:
   m_ObjectHideFlags: 0
@@ -54948,6 +54993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582250216}
   - component: {fileID: 1582250217}
+  - component: {fileID: 1582250218}
   m_Layer: 0
   m_Name: Spawn3
   m_TagString: Untagged
@@ -55022,6 +55068,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1582250218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582250215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc84bf4dab9d4e45b6a108b257aabdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  enemyToSpawn: {fileID: 3065268077338921854, guid: 821a175b9c2a0924288fc8803bb04f6c, type: 3}
 --- !u!1 &1826813937
 GameObject:
   m_ObjectHideFlags: 0
@@ -55241,6 +55301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2069278584}
   - component: {fileID: 2069278585}
+  - component: {fileID: 2069278586}
   m_Layer: 0
   m_Name: Spawn4
   m_TagString: Untagged
@@ -55315,6 +55376,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2069278586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069278583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc84bf4dab9d4e45b6a108b257aabdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  enemyToSpawn: {fileID: 3065268077338921854, guid: 821a175b9c2a0924288fc8803bb04f6c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
