@@ -7,12 +7,6 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateHealthBar(float currentHealth, float maxHealth)
     {
         slider.value = currentHealth/maxHealth;
