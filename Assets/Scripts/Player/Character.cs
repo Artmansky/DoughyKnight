@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private float currentHealth;
-    private float maxHealth;
-    private float currentExperience;
-    private float maxExperience;
-    private int currentLevel;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentExperience;
+    [SerializeField] private float maxExperience;
+    [SerializeField] private int currentLevel;
 
     // Start is called before the first frame update
     void Start()

@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     private Transform target;
     private float distance;
     public float spawnRate = 1f;
-    [SerializeField] private GameObject enemyToSpawn;
+    [SerializeField] private GameObject[] enemyToSpawn;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class EnemySpawn : MonoBehaviour
             distance = Vector2.Distance(transform.position, target.position);
             if (distance > 12.5)
             {
-                Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+                Instantiate(enemyToSpawn[0], transform.position, Quaternion.identity);
             }
         }
     }
