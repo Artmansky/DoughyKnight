@@ -7,8 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     private Rigidbody2D rigid;
-
-    Vector2 movement;
+    private Vector2 movement;
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
