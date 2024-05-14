@@ -6,12 +6,19 @@ public class Enemy : MonoBehaviour
 {
     private Transform target;
     private float currentHealth;
-    public float maxHealh = 10f;
+    [SerializeField] private HealthBar healthBar;
+    public float maxHealth = 10f;
     public float speed = 3f;
+
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<HealthBar>();
+    }
 
     void Start()
     {
-        currentHealth = maxHealh;
+        currentHealth = maxHealth;
+        healthBar.UpdateHealthBar(currentHealth,maxHealth);
         GetTarget();
     }
 
