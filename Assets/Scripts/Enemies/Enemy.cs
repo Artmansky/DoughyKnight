@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     public float maxHealth = 10f;
     public float speed = 3f;
+    public int experience;
 
     private void Awake()
     {
@@ -30,5 +31,11 @@ public class Enemy : MonoBehaviour
     void GetTarget()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void Die()
+    {
+        ExperienceManager.Instance.AddExperience(experience);
+        Destroy(gameObject);
     }
 }

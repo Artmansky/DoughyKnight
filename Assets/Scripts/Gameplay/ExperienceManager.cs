@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class ExperienceManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static ExperienceManager Instance;
+
+    public delegate void ExperienceChangeHandler(int amount);
+    public event ExperienceChangeHandler OnExperienceChange;
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddExperience(int amount)
     {
-        
+        OnExperienceChange?.Invoke(amount);
     }
+
 }
