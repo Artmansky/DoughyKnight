@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int health;
     public int maxHealth = 10;
+    public GameOverScreen gameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            gameOverScreen.Setup();
         }
     }
 }
