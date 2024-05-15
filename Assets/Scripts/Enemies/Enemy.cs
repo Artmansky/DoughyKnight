@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        ExperienceManager.Instance.AddExperience(experience);
         Destroy(gameObject);
     }
 }
