@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health;
-    public int maxHealth = 10;
+    public float health;
+    public float maxHealth = 10.0f;
     public GameOverScreen gameOverScreen;
+    public Image healthBar;
 
-    // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;    
     }
 
-    public void TakeDamage(int damage)
+    void Update()
+    {
+        healthBar.fillAmount = health / maxHealth;
+    }
+
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if(health <= 0)

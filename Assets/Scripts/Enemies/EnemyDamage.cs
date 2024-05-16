@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
 {
     private PlayerHealth playerHealth;
     private Animator animator;
-    public int damage = 2;
+    public float damage = 2.0f;
 
     private void Start()
     {
