@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Transform target;
     private float currentHealth;
+    private bool isFacingRight = false;
     [SerializeField] private HealthBar healthBar;
     public float maxHealth = 10f;
     public float speed = 3f;
@@ -24,12 +25,26 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        float positionChange = transform.position.x;
         transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
+        positionChange -= transform.position.x;
+        FlipSprite(positionChange);
     }
 
     void GetTarget()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void FlipSprite(float horizontal)
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
+        }
     }
 
     void Die()

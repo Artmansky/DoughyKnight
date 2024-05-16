@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     public static bool isPaused;
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.Escape))
