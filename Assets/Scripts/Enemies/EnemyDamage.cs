@@ -23,7 +23,6 @@ public class EnemyDamage : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             animator.SetBool("Attack", true);
-            playerHealth.TakeDamage(damage);
         }
     }
 
