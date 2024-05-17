@@ -22,7 +22,9 @@ public class EnemyDamage : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            animator.SetBool("Attack", true);
+            animator.SetTrigger("Attack");
+            playerHealth.TakeDamage(damage);
+            lastAttackTime = Time.time;
         }
     }
 
@@ -31,16 +33,9 @@ public class EnemyDamage : MonoBehaviour
         if (Time.time - lastAttackTime < attackCooldown) return;
         if (collision.gameObject.tag == "Player")
         {
-                playerHealth.TakeDamage(damage);
-                lastAttackTime = Time.time;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && animator.GetBool("Attack") == true)
-        {
-            animator.SetBool("Attack", false);
+            animator.SetTrigger("Attack");
+            playerHealth.TakeDamage(damage);
+            lastAttackTime = Time.time;
         }
     }
 }
