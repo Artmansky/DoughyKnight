@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     private Transform target;
     private float distance;
     public float spawnRate = 1f;
-    [SerializeField] private GameObject[] enemyToSpawn;
+    public GameObject[] enemyToSpawn;
 
     void Start()
     {
