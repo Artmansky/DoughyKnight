@@ -61,6 +61,27 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+*.meta
+*.asset
+*.prefab
+*.unity
+*.png
+*.json
+*.txt
+*.cginc
+*.shader
+*.pdf
+*.mat
+*.ttf
+*.anim
+*.gif
+*.jpg
+*.controller
+*.wav
+*.ai
+*.scml
+*.eps
+
 /BuildOutput
 
 # Crashlytics generated file
