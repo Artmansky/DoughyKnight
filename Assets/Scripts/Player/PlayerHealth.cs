@@ -9,9 +9,11 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 10.0f;
     public GameOverScreen gameOverScreen;
     public Image healthBar;
+    public Animator anime;
 
     void Start()
     {
+        anime = GetComponent<Animator>();
         health = maxHealth;    
     }
 
@@ -22,9 +24,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        anime.SetTrigger("Hurt");
         health -= damage;
         if(health <= 0)
         {
+            anime.SetTrigger("IsDying");
             gameOverScreen.Setup();
         }
     }
