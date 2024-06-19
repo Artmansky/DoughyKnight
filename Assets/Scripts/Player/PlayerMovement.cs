@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Animator animator;
+    public bool isDying = false;
+    public Animator animatorBasic;
 
     private Rigidbody2D rigid;
     private Vector2 movement;
@@ -14,28 +15,35 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animatorBasic = GetComponent<Animator>();
     }
 
     void Update()
     {
         MovementInput();
+        if(isDying)
+        {
+            Console.WriteLine("Player is dying");
+        }
     }
 
     void FixedUpdate()
     {
         rigid.velocity = movement * moveSpeed;
-        animator.SetFloat("Velocity", Math.Abs(rigid.velocity.x));
+        animatorBasic.SetFloat("Velocity", Math.Abs(rigid.velocity.x) + Math.Abs(rigid.velocity.y));
     }
 
     void MovementInput()
     {
-        float speedX = Input.GetAxisRaw("Horizontal");
-        float speedY = Input.GetAxisRaw("Vertical");
+        if (!isDying)
+        {
+            float speedX = Input.GetAxisRaw("Horizontal");
+            float speedY = Input.GetAxisRaw("Vertical");
 
-        FlipSprite(speedX);
+            FlipSprite(speedX);
 
-        movement = new Vector2(speedX, speedY).normalized;
+            movement = new Vector2(speedX, speedY).normalized;
+        }
     }
 
     void FlipSprite(float horizontal)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = health / maxHealth;
+        if (anime.GetCurrentAnimatorStateInfo(0).IsName("Die") && anime.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            gameOverScreen.Setup();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -28,8 +33,8 @@ public class PlayerHealth : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            anime.SetTrigger("IsDying");
-            gameOverScreen.Setup();
+            anime.SetTrigger("isDying");
+            GetComponent<PlayerMovement>().isDying = true;
         }
     }
 }
