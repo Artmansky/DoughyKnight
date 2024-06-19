@@ -21,10 +21,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovementInput();
-        if(isDying)
-        {
-            Console.WriteLine("Player is dying");
-        }
     }
 
     void FixedUpdate()
@@ -43,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
             FlipSprite(speedX);
 
             movement = new Vector2(speedX, speedY).normalized;
+        }
+        else
+        {
+            movement = Vector2.zero;
         }
     }
 
