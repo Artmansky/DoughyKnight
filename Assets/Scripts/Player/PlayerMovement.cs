@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDying = false;
     public Animator animatorBasic;
     public GameObject attackPoint;
+    public float damage = 2f;
     public float radius;
     public LayerMask enemies;
 
@@ -64,18 +65,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void Attack()
+    void Attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
 
         foreach(Collider2D enemyGameobject in enemy)
         {
-            Debug.Log("We hit enemy");
+            enemyGameobject.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 
     void endAttack()
     {
         animatorBasic.SetBool("isAttacking", false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
 }

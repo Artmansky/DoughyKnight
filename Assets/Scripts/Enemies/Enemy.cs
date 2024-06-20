@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private float currentHealth;
     private bool isFacingRight = false;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Animator animator;
     public float maxHealth = 10f;
     public float speed = 3f;
 
@@ -47,8 +48,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            Die();
+        }
+        else
+        {
+            animator.SetTrigger("Damage");
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+        }
+    }
+
     void Die()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Die");
+        Destroy(gameObject,0.5f);
     }
 }
