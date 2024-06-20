@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] AudioMixer masterMixer;
     public static bool isPaused;
+
+    private void Start()
+    {
+        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
+    }
 
     void Update()
     {
@@ -41,5 +48,15 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SetVolume(float value)
+    {
+        if (value < 1)
+        {
+            value = .001f;
+        }
+        PlayerPrefs.SetFloat("SavedMasterVolume", value);
+        masterMixer.SetFloat("MasterVolume", Mathf.Log10(value / 100) * 20f);
     }
 }
