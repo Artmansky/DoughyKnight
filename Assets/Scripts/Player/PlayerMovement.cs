@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public bool isDying = false;
     public Animator animatorBasic;
+    public GameObject attackPoint;
+    public float radius;
+    public LayerMask enemies;
 
     private Rigidbody2D rigid;
     private Vector2 movement;
@@ -21,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovementInput();
+        if (Input.GetMouseButtonDown(0))
+        {
+            animatorBasic.SetBool("isAttacking", true);
+        }
     }
 
     void FixedUpdate()
@@ -55,5 +62,20 @@ public class PlayerMovement : MonoBehaviour
             ls.x *= -1f;
             transform.localScale = ls;
         }
+    }
+
+    public void Attack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
+
+        foreach(Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("We hit enemy");
+        }
+    }
+
+    void endAttack()
+    {
+        animatorBasic.SetBool("isAttacking", false);
     }
 }
