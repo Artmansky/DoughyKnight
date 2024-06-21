@@ -71,7 +71,15 @@ public class PlayerMovement : MonoBehaviour
 
         foreach(Collider2D enemyGameobject in enemy)
         {
-            enemyGameobject.GetComponent<Enemy>().TakeDamage(damage);
+            if (isFacingRight)
+            {
+                enemyGameobject.GetComponent<Enemy>().TakeDamage(damage);
+                enemyGameobject.GetComponent<KnockbackEffect>().ApplyKnockback(new Vector2(1, 0));
+            }
+            else
+            {
+                enemyGameobject.GetComponent<Enemy>().TakeDamage(damage);
+            }
         }
     }
 

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private bool isFacingRight = false;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject blood;
     public float maxHealth = 10f;
     public float speed = 3f;
 
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        Instantiate(blood, transform.position, Quaternion.identity);
         if (currentHealth <= 0)
         {
             healthBar.UpdateHealthBar(currentHealth, maxHealth);
