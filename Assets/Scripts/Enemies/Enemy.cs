@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private GameObject player;
     private Transform target;
     private float currentHealth;
     private bool isFacingRight = false;
+    private PlayerExperience playerExperience;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject blood;
     public float maxHealth = 10f;
     public float speed = 3f;
+    public float experience;
 
     private void Awake()
     {
         healthBar = GetComponentInChildren<HealthBar>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerExperience = player.GetComponent<PlayerExperience>();
     }
 
     void Start()
@@ -35,7 +40,7 @@ public class Enemy : MonoBehaviour
 
     void GetTarget()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = player.transform;
     }
 
     void FlipSprite(float horizontal)
@@ -67,6 +72,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        playerExperience.AddExp(experience);
         animator.SetTrigger("Die");
         Destroy(gameObject,0.5f);
     }
