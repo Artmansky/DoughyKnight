@@ -4,6 +4,10 @@
 
 ### Methods
 ```cs
+Void Start
+```
+> Sets the volume of the game.
+```cs
 Void SetVolume
 ```
 > Sets the volume of the game.

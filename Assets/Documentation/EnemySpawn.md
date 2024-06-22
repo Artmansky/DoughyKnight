@@ -12,4 +12,16 @@ GameObject[] enemyToSpawn
 ```
 
 ### Methods
+```cs
+Void Start
+```
+> This method is used to get the target of the enemy.
+```cs
+IEnumerator Spawner
+```
+> This method is used to spawn enemies.
+```cs
+Void GetTarget
+```
+> This method is used to get the target of the enemy.
 

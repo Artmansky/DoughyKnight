@@ -4,6 +4,14 @@
 
 ### Methods
 ```cs
+Void Awake
+```
+> This method is called when the object becomes enabled and active.
+```cs
+Void OnEnable
+```
+> This method is called when the object becomes enabled and active.
+```cs
 Void addKnockback
 ```
 > This method adds more knockback strength to the player.
@@ -15,6 +23,10 @@ Void addHealth
 Void addAttack
 ```
 > This method adds more attack damage to the player.
+```cs
+Void adjustHealth
+```
+> This method adjusts the player's health.
 ```cs
 Void enableAttack
 ```

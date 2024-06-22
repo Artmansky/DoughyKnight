@@ -3,4 +3,8 @@
 ### Fields
 
 ### Methods
+```cs
+Void Update
+```
+> Deletes blood particles instantly after 1 second.
 

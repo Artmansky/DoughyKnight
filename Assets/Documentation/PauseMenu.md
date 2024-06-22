@@ -7,6 +7,14 @@ Boolean isPaused
 
 ### Methods
 ```cs
+Void Start
+```
+> Gets saved volume from PlayerPrefs and sets the volume to the saved volume.
+```cs
+Void Update
+```
+> Checks if the player presses the escape key and pauses or resumes the game.
+```cs
 Void PauseGame
 ```
 > Pauses the game and sets the time scale to 0.

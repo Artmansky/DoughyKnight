@@ -16,6 +16,10 @@ Void PlayAudio
 ```
 > This function is used to play the audio.
 ```cs
+Void Start
+```
+> This function is used to set the volume from saved value.
+```cs
 Void SetVolume
 ```
 > This function is used to set the volume.

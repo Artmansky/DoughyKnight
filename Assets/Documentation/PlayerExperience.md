@@ -13,6 +13,10 @@ Image expBar
 
 ### Methods
 ```cs
+Void Update
+```
+> Updates the experience bar
+```cs
 Void AddExp
 ```
 > Adds experience to the player, if it hits the cap stays on max level
