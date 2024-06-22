@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MADD;
 
+[Docs("Class that manages the player experience")]
 public class PlayerExperience : MonoBehaviour
 {
     [SerializeField] private GameObject levelUpPanel;
@@ -12,11 +13,13 @@ public class PlayerExperience : MonoBehaviour
     public int level = 0;
     public Image expBar;
 
+    [Docs("Updates the experience bar")]
     void Update()
     {
         expBar.fillAmount = Mathf.Clamp(currentExp/maxExp, 0, 1);
     }
 
+    [Docs("Adds experience to the player, if it hits the cap stays on max level")]
     public void AddExp(float exp)
     {
         if (level == 30)

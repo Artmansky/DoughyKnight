@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MADD;
 
+[Docs("Class that manages the player's health and particle effects when the player takes damage.")]
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerMovement playerMovement;
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject blood;
     public Animator anime;
 
+    [Docs("Initializes the player's health and the particles that will be used when the player takes damage.")]
     void Start()
     {
         anime = GetComponent<Animator>();
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;    
     }
 
+    [Docs("Updates the player's health bar and checks if the player's health is less than or equal to 0.")]
     void Update()
     {
         healthBar.fillAmount = health / maxHealth;
@@ -33,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    [Docs("Reduces the player's health when the player takes damage, initiates death animation")]
     public void TakeDamage(float damage)
     {
         anime.SetTrigger("Hurt");

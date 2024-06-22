@@ -4,6 +4,7 @@ using UnityEngine;
 using MADD;
 using UnityEngine.Timeline;
 
+[Docs("This class is responsible for managing the player's upgrades.")]
 public class GameMaster : MonoBehaviour
 {
     private PlayerHealth playerHealth;
@@ -15,12 +16,15 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private GameObject[] attackButton;
     [SerializeField] private GameObject[] healthButton;
     [SerializeField] private GameObject[] knockbackButton;
+
+    [Docs("This method is called when the object becomes enabled and active.")]
     void Awake()
     {
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
+    [Docs("This method is called when the object becomes enabled and active.")]
     private void OnEnable()
     {
         enableAttack();
@@ -28,6 +32,7 @@ public class GameMaster : MonoBehaviour
         enableKnockback();
     }
 
+    [Docs("This method adds more knockback strength to the player.")]
     public void addKnockback()
     {
         playerMovement.knockbackForce += 0.1f;
@@ -36,6 +41,7 @@ public class GameMaster : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    [Docs("This method adds more health to the player.")]
     public void addHealth()
     {
         playerHealth.maxHealth += 100;
@@ -44,6 +50,7 @@ public class GameMaster : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    [Docs("This method adds more attack damage to the player.")]
     public void addAttack()
     {
         playerMovement.damage += 2;
@@ -52,6 +59,7 @@ public class GameMaster : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    [Docs("This method adjusts the player's health.")]
     void adjustHealth()
     {
         if (playerHealth.health < playerHealth.maxHealth * 0.75f)
@@ -65,6 +73,7 @@ public class GameMaster : MonoBehaviour
         thisPanel.SetActive(false);
     }
 
+    [Docs("This method enables the attack upgrade.")]
     public void enableAttack()
     {
         if (attackUpgrade == 10)
@@ -74,6 +83,7 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    [Docs("This method enables the health upgrade.")]
     public void enableHealth()
     {
         if (healthUpgrade == 10)
@@ -83,6 +93,7 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    [Docs("This method enables the knockback upgrade.")]
     public void enableKnockback()
     {
         if (knockbackUpgrade == 10)
