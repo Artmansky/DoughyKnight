@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerExperience : MonoBehaviour
 {
     private float currentExp = 0;
-    private float maxExp = 100;
+    private float maxExp = 50;
     public int level = 0;
     public Image expBar;
 

@@ -6,8 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private EnemySpawn[] list;
     [SerializeField] private GameObject[] enemyToSpawn;
-    [SerializeField] private PlayerExperience playerExperience;
     [SerializeField] private float spawnRate = 1000f;
+    private PlayerExperience playerExperience;
     private int lastLevel = 0;
 
     void Start()

@@ -12,15 +12,9 @@ public class KnockbackEffect : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ApplyKnockback(Vector2 knockbackDirection)
+    public void ApplyKnockback(Vector2 knockbackDirection, float knockbackPlayer)
     {
         knockbackDirection.Normalize();
-        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-    }
-
-    public void OnHit(Vector2 attackerPosition)
-    {
-        Vector2 knockbackDirection = (rb.position - (Vector2)attackerPosition).normalized;
-        ApplyKnockback(knockbackDirection);
+        rb.AddForce(knockbackDirection * knockbackForce * knockbackPlayer, ForceMode2D.Impulse);
     }
 }

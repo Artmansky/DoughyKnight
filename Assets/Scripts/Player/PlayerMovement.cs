@@ -10,8 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public Animator animatorBasic;
     public GameObject attackPoint;
     public float damage = 2f;
+    public float knockbackForce = 1f;
     public float radius;
     public LayerMask enemies;
+
 
     private Rigidbody2D rigid;
     private Vector2 movement;
@@ -74,11 +76,11 @@ public class PlayerMovement : MonoBehaviour
             enemyGameobject.GetComponent<Enemy>().TakeDamage(damage);
             if (isFacingRight)
             {
-                enemyGameobject.GetComponent<KnockbackEffect>().ApplyKnockback(new Vector2(1, 0));
+                enemyGameobject.GetComponent<KnockbackEffect>().ApplyKnockback(new Vector2(1, 0),knockbackForce);
             }
             else
             {
-                enemyGameobject.GetComponent<KnockbackEffect>().ApplyKnockback(new Vector2(-1, 0));
+                enemyGameobject.GetComponent<KnockbackEffect>().ApplyKnockback(new Vector2(-1, 0),knockbackForce);
             }
         }
     }
