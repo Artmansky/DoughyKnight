@@ -81,6 +81,7 @@ sysinfo.txt
 *.ai
 *.scml
 *.eps
+*.mp3
 
 /BuildOutput
 
