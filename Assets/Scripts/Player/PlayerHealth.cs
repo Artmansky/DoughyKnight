@@ -8,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     private AudioSource hitSound;
-    private GameObject finishSound;
     public float health;
     public float maxHealth = 10.0f;
     public GameOverScreen gameOverScreen;
@@ -21,7 +20,6 @@ public class PlayerHealth : MonoBehaviour
         anime = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         hitSound = GetComponent<AudioSource>();
-        finishSound = GameObject.Find("Death Sound");
         health = maxHealth;    
     }
 
@@ -31,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         if (anime.GetCurrentAnimatorStateInfo(0).IsName("Die") && anime.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             gameOverScreen.Setup();
+            Time.timeScale = 0;
         }
     }
 
@@ -43,7 +42,6 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             anime.SetTrigger("isDying");
-            finishSound.GetComponent<AudioSource>().Play();
             playerMovement.isDying = true;
         }
     }

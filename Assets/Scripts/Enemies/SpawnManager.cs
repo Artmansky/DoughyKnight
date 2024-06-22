@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
             {
                 Difficulty();
             }
-            spawnRate -= 25;
+            spawnRate -= 200;
         }
     }
 
