@@ -37,10 +37,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         anime.SetTrigger("Hurt");
-        hitSound.Play();
         Instantiate(blood, transform.position, Quaternion.identity);
         health -= damage;
-        if(health <= 0)
+        hitSound.Play();
+        if (health <= 0)
         {
             anime.SetTrigger("isDying");
             finishSound.GetComponent<AudioSource>().Play();

@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private float currentHealth;
     private bool isFacingRight = false;
     private PlayerExperience playerExperience;
+    private AudioSource deathSound;
+    private AudioSource audioSource;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject blood;
@@ -21,6 +23,8 @@ public class Enemy : MonoBehaviour
         healthBar = GetComponentInChildren<HealthBar>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerExperience = player.GetComponent<PlayerExperience>();
+        deathSound = GameObject.Find("DeathSoundEnemy").GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -57,6 +61,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        audioSource.Play();
         Instantiate(blood, transform.position, Quaternion.identity);
         if (currentHealth <= 0)
         {
@@ -73,6 +78,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         playerExperience.AddExp(experience);
+        deathSound.Play();
         animator.SetTrigger("Die");
         Destroy(gameObject,0.5f);
     }
