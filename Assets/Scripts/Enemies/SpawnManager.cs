@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MADD;
 
-[Docs("This script is responsible for managing the spawnrate of enemies.")]
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private EnemySpawn[] list;
@@ -12,7 +10,6 @@ public class SpawnManager : MonoBehaviour
     private PlayerExperience playerExperience;
     private int lastLevel = 0;
 
-    [Docs("This method is called when the object becomes enabled and active.")]
     void Start()
     {
         playerExperience = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExperience>();
@@ -23,7 +20,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    [Docs("This method is called every frame.")]
     void Update()
     {
         if(lastLevel != playerExperience.level)
@@ -37,7 +33,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    [Docs("This method is responsible for changing the difficulty of the game.")]
     void Difficulty()
     {
         switch (playerExperience.level)

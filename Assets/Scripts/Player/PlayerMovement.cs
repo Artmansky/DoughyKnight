@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MADD;
 
-[Docs("Class that controls the player movement, attack and flip sprite")]
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -20,14 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private bool isFacingRight = true;
 
-    [Docs("Start is called before the first frame update")]
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         animatorBasic = GetComponent<Animator>();
     }
 
-    [Docs("Update is called once per frame, it checks if player clicked attack button or movement keys")]
     void Update()
     {
         MovementInput();
@@ -37,14 +33,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    [Docs("FixedUpdate is called once per frame, it moves the player based on the movement vector")]
     void FixedUpdate()
     {
         rigid.velocity = movement * moveSpeed;
         animatorBasic.SetFloat("Velocity", Math.Abs(rigid.velocity.x) + Math.Abs(rigid.velocity.y));
     }
 
-    [Docs("Method that checks if player is moving and sets the movement vector")]
     void MovementInput()
     {
         if (!isDying)
@@ -62,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    [Docs("Method that flips the sprite based on the horizontal movement")]
     void FlipSprite(float horizontal)
     {
         if(isFacingRight && horizontal<0f || !isFacingRight && horizontal > 0f)
@@ -74,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    [Docs("Method that checks if player is attacking and calls the Attack method, plus applies knockback direction")]
     void Attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
@@ -93,13 +85,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    [Docs("Method that sets the isAttacking parameter to false")]
     void endAttack()
     {
         animatorBasic.SetBool("isAttacking", false);
     }
 
-    [Docs("Method that draws a wire sphere around the attack point")]
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);

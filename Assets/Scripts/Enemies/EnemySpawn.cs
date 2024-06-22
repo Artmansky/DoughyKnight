@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MADD;
 
-[Docs("This script is used to spawn enemies in the game.")]
 public class EnemySpawn : MonoBehaviour
 {
     private Transform target;
@@ -12,14 +10,12 @@ public class EnemySpawn : MonoBehaviour
     public int maxEnemyLevel = 0;
     public GameObject[] enemyToSpawn;
 
-    [Docs("This method is used to get the target of the enemy.")]
     void Start()
     {
         GetTarget();
         StartCoroutine(Spawner());
     }
 
-    [Docs("This method is used to spawn enemies.")]
     IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
@@ -37,7 +33,6 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
-    [Docs("This method is used to get the target of the enemy.")]
     void GetTarget()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
