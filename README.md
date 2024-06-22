@@ -1,3 +1,12 @@
-Rogue like game for university project. Made in Unity.
+# DoughtyKnight
 
-Creators: Tomasz Artmański, Marta Miozga, Filip Cichosz.
+Written in C#, using Unity Engine. Simple game with waves of enemies upgrades and lots of free assets.
+
+## Installation
+
+Download and Install the game from releases tab.
+## Authors
+
+- [@Artmansky](https://github.com/Artmansky)
+- Marta Miozga
+- Filip Cichosz
