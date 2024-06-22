@@ -7,7 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    private float health;
+    public float health;
     public float maxHealth = 10.0f;
     public GameOverScreen gameOverScreen;
     public Image healthBar;

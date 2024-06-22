@@ -7,6 +7,7 @@ public class EnemySpawn : MonoBehaviour
     private Transform target;
     private float distance;
     public float spawnRate = 1f;
+    public int maxEnemyLevel = 0;
     public GameObject[] enemyToSpawn;
 
     void Start()
@@ -26,7 +27,8 @@ public class EnemySpawn : MonoBehaviour
             distance = Vector2.Distance(transform.position, target.position);
             if (distance > 12.5)
             {
-                Instantiate(enemyToSpawn[0], transform.position, Quaternion.identity);
+                int randomEnemy = Random.Range(0, maxEnemyLevel+1);
+                Instantiate(enemyToSpawn[randomEnemy], transform.position, Quaternion.identity);
             }
         }
     }
