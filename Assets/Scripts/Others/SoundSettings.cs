@@ -8,6 +8,7 @@ public class SoundSettings : MonoBehaviour
 {
     [SerializeField] Slider soundSlider;
     [SerializeField] AudioMixer masterMixer;
+    private bool muted = false;
 
     private void Start()
     {
@@ -27,11 +28,27 @@ public class SoundSettings : MonoBehaviour
 
     public void SetVolumeFromSlider()
     {
-        SetVolume(soundSlider.value);
+        if (!muted)
+        {
+            SetVolume(soundSlider.value);
+        }
     }
 
     public void RefreshSlider(float value)
     {
         soundSlider.value = value;
+    }
+
+    public void MuteMusic()
+    {
+        muted = !muted;
+        if(muted)
+        {
+            masterMixer.SetFloat("MasterVolume", -80.0f);
+        }
+        else
+        {
+            SetVolumeFromSlider();
+        }
     }
 }
