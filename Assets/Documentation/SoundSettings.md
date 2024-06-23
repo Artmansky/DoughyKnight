@@ -19,4 +19,7 @@ Void SetVolumeFromSlider
 Void RefreshSlider
 ```
 > Refreshes the slider.
-
+```cs
+Void MuteMusic
+```
+> Mutes all sounds in game when button is clicked.
